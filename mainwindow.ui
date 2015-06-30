@@ -14,7 +14,7 @@
    <string>Mr.Robot2Pawn</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPlainTextEdit" name="plainTextEdit">
+   <widget class="QPlainTextEdit" name="robotWeightText">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -24,7 +24,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit_2">
+   <widget class="QPlainTextEdit" name="pawnWeightText">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -155,7 +155,7 @@
   <connection>
    <sender>robotResetField</sender>
    <signal>clicked()</signal>
-   <receiver>plainTextEdit</receiver>
+   <receiver>robotWeightText</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">

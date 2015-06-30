@@ -31,3 +31,33 @@ void MainWindow::on_actionAbout_triggered()
     msgBox.setText("Made using Qt and love.\nPlease Mr.Robot add this feature!");
     msgBox.exec();
 }
+
+void MainWindow::on_openRobotWeightsMain_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "C://", "Text files (*.txt)");
+
+    if(fileName.isEmpty())
+    {
+        return;
+    }
+
+    QFile file(fileName);
+
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        return;
+    }
+
+    QTextStream in(&file);
+
+    while (!in.atEnd())
+    {
+       QString line = in.readLine();
+       ui->robotWeightText->appendPlainText(line);
+    }
+}
+
+void MainWindow::on_actionOpen_triggered()
+{
+    on_openRobotWeightsMain_clicked();
+}

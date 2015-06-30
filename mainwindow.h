@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QTextStream>
 
 namespace Ui {
 class MainWindow;
@@ -22,6 +24,10 @@ private slots:
     void on_actionUsage_triggered();
 
     void on_actionAbout_triggered();
+
+    void on_openRobotWeightsMain_clicked();
+
+    void on_actionOpen_triggered();
 
 private:
     Ui::MainWindow *ui;
