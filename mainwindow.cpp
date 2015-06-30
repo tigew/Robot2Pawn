@@ -29,4 +29,5 @@ void MainWindow::on_actionAbout_triggered()
 {
     QMessageBox msgBox;
     msgBox.setText("Made using Qt and love.\nPlease Mr.Robot add this feature!");
+    msgBox.exec();
 }
