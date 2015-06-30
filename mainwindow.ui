@@ -151,5 +151,22 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>robotResetField</sender>
+   <signal>clicked()</signal>
+   <receiver>plainTextEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>203</x>
+     <y>270</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>201</x>
+     <y>212</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
