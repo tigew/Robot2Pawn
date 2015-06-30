@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Mr.Robot2Pawn</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPlainTextEdit" name="plainTextEdit">
@@ -63,14 +63,27 @@
    <widget class="QPushButton" name="saveWeights">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>430</x>
+      <y>230</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="convertButton">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
       <y>230</y>
       <width>101</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Save</string>
+     <string>Convert</string>
     </property>
    </widget>
   </widget>
