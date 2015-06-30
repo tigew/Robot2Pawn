@@ -5,6 +5,8 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QTextStream>
+#include <QVector>
+#include <QInputDialog>
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +19,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    QString AttributeTranslate(QString attribute);
 
 private slots:
     void on_actionExit_triggered();
@@ -29,8 +32,11 @@ private slots:
 
     void on_actionOpen_triggered();
 
+    void on_convertButton_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QVector<QString> weightVector;
 };
 
 #endif // MAINWINDOW_H
