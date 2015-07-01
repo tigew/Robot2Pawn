@@ -74,24 +74,43 @@ void MainWindow::on_convertButton_clicked()
     // Adding require elems
     for(int i = 0; i < 3; i++)
     {
-        weightVector.push_back(requiredElems[i]);
+        weightNames.push_back(requiredElems[i]);
     }
-    weightVector.push_back("\"" + profileName + "\"");
+    weightNames.push_back("\"" + profileName + "\"");
 
     // Setting up startingString and getting rid of spaces
     startingString = ui->robotWeightText->toPlainText();
     weightList = startingString.split("\n");
 
 
+    for(int i = 0; i < weightList.length(); i ++)
+    {
+        if(weightList.at(i).contains("set"))
+        {
+            continue;
+        }
+
+        QStringList temp = weightList.at(i).split(" ");
+        weightNames.push_back(temp.at(0));
+
+        for(int j = 0; j < temp.length(); j++)
+        {
+            if(temp.at(j).contains("."))
+            {
+                weightValues.push_back(temp.at(j));
+            }
+        }
+    }
+
 
     // Meat
 
 
     // Print loop
-    weightVector.push_back(")");
-    for(int i = 0; i < weightVector.length(); i++)
+    weightNames.push_back(")");
+    for(int i = 0; i < weightNames.length(); i++)
     {
-        finishedString += weightVector.at(i) + " ";
+        finishedString += weightNames.at(i) + " ";
     }
 
     ui->pawnWeightText->setPlainText(finishedString);

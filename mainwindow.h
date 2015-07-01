@@ -37,7 +37,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QVector<QString> weightVector;
+    QVector<QString> weightNames;
+    QVector<QString> weightValues;
     QVector<QString> startVec;
 };
 
