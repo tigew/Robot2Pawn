@@ -117,6 +117,7 @@ void MainWindow::on_convertButton_clicked()
            finishedWeightList.push_back(weightNames.at(i) + "=" + weightValues.at(i));
            break;
         }
+
         finishedWeightList.push_back(weightNames.at(i) + "=" + weightValues.at(i) + ",");
     }
 
