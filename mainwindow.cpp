@@ -65,9 +65,6 @@ void MainWindow::on_actionOpen_triggered()
 void MainWindow::on_convertButton_clicked()
 {
     // Get profile name from user
-    weightValues.clear();
-    weightNames.clear();
-    finishedWeightList.clear();
     QString requiredElems[4] = {"(","Pawn:", "v1:"};
     profileName = QInputDialog::getText(this, tr("Profile Name"), tr("Name:"));
     QString finishedString;
@@ -131,6 +128,10 @@ void MainWindow::on_convertButton_clicked()
     }
 
     ui->pawnWeightText->setPlainText(finishedString);
+
+    weightValues.clear();
+    weightNames.clear();
+    finishedWeightList.clear();
 }
 
 QString MainWindow::AttributeTranslate(QString attribute)
