@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Sets fixed size
     QWidget::setFixedSize(this->size());
 }
 
@@ -36,13 +37,16 @@ void MainWindow::on_actionAbout_triggered()
 
 void MainWindow::on_openRobotWeightsMain_clicked()
 {
+    // creates dialog that gets the name/location of  where the file is
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "C://", "Text files (*.txt)");
 
+    // returns if no name chosen
     if(fileName.isEmpty())
     {
         return;
     }
 
+    // creates file object checks that it has text and reads it into robot weights
     QFile file(fileName);
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -66,6 +70,7 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_convertButton_clicked()
 {
+    // Checks if text is in the robot weights, no text no need to run the function
     if(ui->robotWeightText->toPlainText() == "")
     {
         QMessageBox msgBox;
@@ -98,6 +103,9 @@ void MainWindow::on_convertButton_clicked()
     weightList = startingString.split("\n");
 
 
+    // clearing the set bonus weights from the list
+    // while spliting the name and values of the weights
+    // into seperate vectors
     for(int i = 0; i < weightList.length(); i ++)
     {
         if(weightList.at(i).contains("set"))
@@ -119,6 +127,9 @@ void MainWindow::on_convertButton_clicked()
 
 
     // Meat
+    // Translates needed names from robot to pawn
+    // then creates the finalized vector formated
+    // in pawn lingo to be pushed to the string
     for(int i = 0; i < weightNames.length(); i++)
     {
         if (weightNames.at(i) == "Haste" || weightNames.at(i) == "Mastery"|| weightNames.at(i) == "CriticalStrike" ||
@@ -136,7 +147,9 @@ void MainWindow::on_convertButton_clicked()
         finishedWeightList.push_back(weightNames.at(i) + "=" + weightValues.at(i) + ",");
     }
 
-    // Print loop
+    // Print loop (Bad name)
+    // Added final needed elem
+    // and pushes finalized vector to a string
     finishedWeightList.push_back(")");
     for(int i = 0; i < finishedWeightList.length(); i++)
     {
@@ -148,8 +161,12 @@ void MainWindow::on_convertButton_clicked()
         finishedString += finishedWeightList.at(i) + " ";
     }
 
+    // pushses finished string to ui
     ui->pawnWeightText->setPlainText(finishedString);
 
+    // clears needed vars to if you hit
+    // convert again you wont get double
+    // what you want
     weightValues.clear();
     weightNames.clear();
     finishedWeightList.clear();
@@ -158,6 +175,9 @@ void MainWindow::on_convertButton_clicked()
 
 QString MainWindow::AttributeTranslate(QString attribute)
 {
+    // Translates Robot to Pawn strings
+    // I really wish I could use switchs
+    // here
     QString translated;
 
     if(attribute == "Haste") {
@@ -177,22 +197,29 @@ QString MainWindow::AttributeTranslate(QString attribute)
 
 void MainWindow::on_saveWeights_clicked()
 {
+    // Wont trigger save if pawn weights are empty
     if(ui->pawnWeightText->toPlainText() == "")
     {
         return;
     }
 
     // I kinda have an idea how this works
+    // gets the save name/location you want
     QString fn = QFileDialog::getSaveFileName(this, tr("Save as..."), QString(), tr("Text Files (*.txt)"));
+
+    // If empty returns
     if (fn.isEmpty())
     {
         return;
     }
 
+    // If your being dumb and you didn't add .txt we add it for you
     if (!fn.endsWith(".txt", Qt::CaseInsensitive))
     {
         fn += ".txt";
     }
+
+    // Creates writer then shoves our file into it
     QTextDocumentWriter writer(fn);
 
     writer.write(ui->pawnWeightText->document());
