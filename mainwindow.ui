@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>608</width>
-    <height>445</height>
+    <height>336</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -165,6 +165,22 @@
     <hint type="destinationlabel">
      <x>201</x>
      <y>212</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>robotResetField</sender>
+   <signal>clicked()</signal>
+   <receiver>pawnWeightText</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>244</x>
+     <y>286</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>332</x>
+     <y>179</y>
     </hint>
    </hints>
   </connection>

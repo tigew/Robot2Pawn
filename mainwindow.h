@@ -8,6 +8,7 @@
 #include <QVector>
 #include <QInputDialog>
 #include <QStringList>
+#include <QTextDocumentWriter>
 
 namespace Ui {
 class MainWindow;
@@ -35,11 +36,16 @@ private slots:
 
     void on_convertButton_clicked();
 
+    void on_saveWeights_clicked();
+
+    void on_actionSave_triggered();
+
 private:
     Ui::MainWindow *ui;
     QVector<QString> finishedWeightList;
     QVector<QString> weightNames;
     QVector<QString> weightValues;
+    QString profileName;
 };
 
 #endif // MAINWINDOW_H
