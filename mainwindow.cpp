@@ -64,12 +64,22 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_convertButton_clicked()
 {
+    if(ui->robotWeightText->toPlainText() == "")
+    {
+        return;
+    }
+
     // Get profile name from user
     QString requiredElems[4] = {"(","Pawn:", "v1:"};
     profileName = QInputDialog::getText(this, tr("Profile Name"), tr("Name:"));
     QString finishedString;
     QString startingString;
     QStringList weightList;
+
+    if(profileName.isEmpty())
+    {
+        return;
+    }
 
     // Adding require elems
     for(int i = 0; i < 3; i++)
@@ -133,6 +143,7 @@ void MainWindow::on_convertButton_clicked()
     weightValues.clear();
     weightNames.clear();
     finishedWeightList.clear();
+    profileName.clear();
 }
 
 QString MainWindow::AttributeTranslate(QString attribute)
@@ -156,6 +167,11 @@ QString MainWindow::AttributeTranslate(QString attribute)
 
 void MainWindow::on_saveWeights_clicked()
 {
+    if(ui->pawnWeightText->toPlainText() == "")
+    {
+        return;
+    }
+
     // I kinda have an idea how this works
     QString fn = QFileDialog::getSaveFileName(this, tr("Save as..."), QString(), tr("Text Files (*.txt)"));
     if (fn.isEmpty())
