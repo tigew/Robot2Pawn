@@ -7,6 +7,7 @@
 #include <QTextStream>
 #include <QVector>
 #include <QInputDialog>
+#include <QStringList>
 
 namespace Ui {
 class MainWindow;
@@ -37,6 +38,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QVector<QString> weightVector;
+    QVector<QString> startVec;
 };
 
 #endif // MAINWINDOW_H

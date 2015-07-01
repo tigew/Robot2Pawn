@@ -68,6 +68,8 @@ void MainWindow::on_convertButton_clicked()
     QString requiredElems[4] = {"(","Pawn:", "v1:"};
     QString profileName = QInputDialog::getText(this, tr("Profile Name"), tr("Name:"));
     QString finishedString;
+    QString startingString;
+    QStringList weightList;
 
     // Adding require elems
     for(int i = 0; i < 3; i++)
@@ -76,8 +78,13 @@ void MainWindow::on_convertButton_clicked()
     }
     weightVector.push_back("\"" + profileName + "\"");
 
-    // Meat
+    // Setting up startingString and getting rid of spaces
+    startingString = ui->robotWeightText->toPlainText();
+    weightList = startingString.split("\n");
 
+
+
+    // Meat
 
 
     // Print loop
@@ -92,7 +99,7 @@ void MainWindow::on_convertButton_clicked()
 
 QString MainWindow::AttributeTranslate(QString attribute)
 {
-    Qstring translated;
+    QString translated;
 
     return translated;
 }
