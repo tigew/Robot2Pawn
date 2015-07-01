@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    QWidget::setFixedSize(this->size());
 }
 
 MainWindow::~MainWindow()
@@ -66,6 +68,9 @@ void MainWindow::on_convertButton_clicked()
 {
     if(ui->robotWeightText->toPlainText() == "")
     {
+        QMessageBox msgBox;
+        msgBox.setText("You need to have text in the left window first.");
+        msgBox.exec();
         return;
     }
 
@@ -135,6 +140,11 @@ void MainWindow::on_convertButton_clicked()
     finishedWeightList.push_back(")");
     for(int i = 0; i < finishedWeightList.length(); i++)
     {
+        if (i == finishedWeightList.length() - 1)
+        {
+           finishedString += finishedWeightList.at(i);
+           break;
+        }
         finishedString += finishedWeightList.at(i) + " ";
     }
 

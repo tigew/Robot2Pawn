@@ -33,6 +33,9 @@
       <height>191</height>
      </rect>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="openRobotWeightsMain">
     <property name="geometry">
@@ -84,6 +87,32 @@
     </property>
     <property name="text">
      <string>Convert</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="robotLabel">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>10</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Robot Weights:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pawnLabel">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>10</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pawn Weights:</string>
     </property>
    </widget>
   </widget>
