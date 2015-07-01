@@ -74,9 +74,9 @@ void MainWindow::on_convertButton_clicked()
     // Adding require elems
     for(int i = 0; i < 3; i++)
     {
-        weightNames.push_back(requiredElems[i]);
+        finishedWeightList.push_back(requiredElems[i]);
     }
-    weightNames.push_back("\"" + profileName + "\"");
+    finishedWeightList.push_back("\"" + profileName + "\"");
 
     // Setting up startingString and getting rid of spaces
     startingString = ui->robotWeightText->toPlainText();
@@ -104,7 +104,11 @@ void MainWindow::on_convertButton_clicked()
 
 
     // Meat
-
+    for(int i = 0; i < weightNames.length(); i++)
+    {
+        weightNames[i] = AttributeTranslate(weightNames.at(i));
+        finishedWeightList.push_back(weightNames.at(i) + "=" + weightValues.at(i));
+    }
 
     // Print loop
     weightNames.push_back(")");
