@@ -47,7 +47,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Open Robot</string>
+     <string>Open Weight txt</string>
     </property>
    </widget>
    <widget class="QPushButton" name="robotResetField">

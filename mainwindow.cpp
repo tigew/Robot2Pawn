@@ -73,9 +73,6 @@ void MainWindow::on_convertButton_clicked()
     // Checks if text is in the robot weights, no text no need to run the function
     if(ui->robotWeightText->toPlainText() == "")
     {
-        QMessageBox msgBox;
-        msgBox.setText("You need to have text in the left window first.");
-        msgBox.exec();
         return;
     }
 
