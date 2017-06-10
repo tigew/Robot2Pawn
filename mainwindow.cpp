@@ -83,6 +83,8 @@ void MainWindow::on_convertButton_clicked()
     QString startingString;
     QStringList weightList;
 
+    startingString = "";
+
     if(profileName.isEmpty())
     {
         return;
