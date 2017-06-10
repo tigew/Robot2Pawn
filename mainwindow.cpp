@@ -82,6 +82,8 @@ void MainWindow::on_convertButton_clicked()
     QString finishedString;
     QString startingString;
     QStringList weightList;
+    
+    requiredElems = {"(","Pawn:", "v1:"};
 
     if(profileName.isEmpty())
     {
